@@ -421,11 +421,16 @@ shared_library_bounds(IN shlib_handle_t lib, IN byte *addr, IN const char *name,
                       OUT byte **start, OUT byte **end);
 char *
 get_dynamorio_library_path(void);
+#define DR_MEMPROT_STACK 0x40
+#define DR_MEMPROT_SHARED 0x80
 
 #define MEMPROT_NONE DR_MEMPROT_NONE
 #define MEMPROT_READ DR_MEMPROT_READ
 #define MEMPROT_WRITE DR_MEMPROT_WRITE
 #define MEMPROT_EXEC DR_MEMPROT_EXEC
+#define MEMPROT_STACK DR_MEMPROT_STACK
+#define MEMPROT_SHARED DR_MEMPROT_SHARED
+
 #ifdef WINDOWS
 #    define MEMPROT_GUARD DR_MEMPROT_GUARD
 #else

@@ -362,6 +362,8 @@ memquery_from_os(const byte *pc, OUT dr_mem_info_t *info, OUT bool *have_type)
                  * DrMem#1778 seems to only happen on 3.19+ in any case.
                  */
                 info->prot |= MEMPROT_VDSO;
+            } else if (strcmp(iter.comment, "[stack]") == 0) {
+                             info->prot |= MEMPROT_STACK;
             }
             found = true;
             break;

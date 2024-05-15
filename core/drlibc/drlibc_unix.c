@@ -78,6 +78,8 @@ permstr_to_memprot(const char *const perm)
     uint mem_prot = 0;
     if (perm == NULL || *perm == '\0')
         return mem_prot;
+    if (perm[3] == 's')
+        mem_prot |= MEMPROT_SHARED;
     if (perm[2] == 'x')
         mem_prot |= MEMPROT_EXEC;
     if (perm[1] == 'w')
